@@ -46,10 +46,12 @@ add_library(boost::unit_test_framework STATIC IMPORTED)
 set_property(TARGET boost::unit_test_framework PROPERTY IMPORTED_LOCATION ${BOOST_LIB_DIR}/libboost_unit_test_framework${BOOST_LIBRARY_SUFFIX})
 add_dependencies(boost::unit_test_framework boost-project)
 
-add_library(boost::context STATIC IMPORTED)
-set_property(TARGET boost::context PROPERTY IMPORTED_LOCATION ${BOOST_LIB_DIR}/libboost_context${BOOST_LIBRARY_SUFFIX})
-add_dependencies(boost::context boost-project)
-
 add_library(boost::fiber STATIC IMPORTED)
 set_property(TARGET boost::fiber PROPERTY IMPORTED_LOCATION ${BOOST_LIB_DIR}/libboost_fiber${BOOST_LIBRARY_SUFFIX})
+set_property(TARGET boost::fiber PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${BOOST_INCLUDE_DIR} )
 add_dependencies(boost::fiber boost-project)
+
+add_library(boost::context STATIC IMPORTED)
+set_property(TARGET boost::context PROPERTY IMPORTED_LOCATION ${BOOST_LIB_DIR}/libboost_context${BOOST_LIBRARY_SUFFIX})
+set_property(TARGET boost::context PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${BOOST_INCLUDE_DIR} )
+add_dependencies(boost::context boost-project)
