@@ -34,6 +34,8 @@ ExternalProject_Add(boost-project
   -d0
   --ignore-site-config
   --with-test
+  --with-context
+  --with-fiber
   INSTALL_COMMAND ""
   )
 
@@ -43,3 +45,11 @@ set(BOOST_LIB_DIR ${CMAKE_BINARY_DIR}/deps/boost/stage/lib)
 add_library(boost::unit_test_framework STATIC IMPORTED)
 set_property(TARGET boost::unit_test_framework PROPERTY IMPORTED_LOCATION ${BOOST_LIB_DIR}/libboost_unit_test_framework${BOOST_LIBRARY_SUFFIX})
 add_dependencies(boost::unit_test_framework boost-project)
+
+add_library(boost::context STATIC IMPORTED)
+set_property(TARGET boost::context PROPERTY IMPORTED_LOCATION ${BOOST_LIB_DIR}/libboost_context${BOOST_LIBRARY_SUFFIX})
+add_dependencies(boost::context boost-project)
+
+add_library(boost::fiber STATIC IMPORTED)
+set_property(TARGET boost::fiber PROPERTY IMPORTED_LOCATION ${BOOST_LIB_DIR}/libboost_fiber${BOOST_LIBRARY_SUFFIX})
+add_dependencies(boost::fiber boost-project)
