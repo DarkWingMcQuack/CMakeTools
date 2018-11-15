@@ -14,9 +14,9 @@ set(CMAKE_ARGS
 
 ExternalProject_Add(rpclib-project
   PREFIX deps/rpclib
-  DOWNLOAD_NAME rpclib-2.1.1.tar.gz
+  DOWNLOAD_NAME rpclib-2.2.1.tar.gz
   DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/downloads
-  URL https://github.com/jarro2783/rpclib/archive/v2.1.1.tar.gz
+  URL https://github.com/rpclib/rpclib/archive/v2.2.1.tar.gz
   CMAKE_ARGS ${CMAKE_ARGS}
   # Overwtire build and install commands to force Release build on MSVC.
   BUILD_COMMAND cmake --build <BINARY_DIR> --config Release
