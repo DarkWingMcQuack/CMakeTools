@@ -39,7 +39,7 @@ ExternalProject_Add(boost-project
   INSTALL_COMMAND ""
   )
 
-set(BOOST_INCLUDE_DIR ${CMAKE_BINARY_DIR}/boost)
+set(BOOST_INCLUDE_DIR ${CMAKE_BINARY_DIR}/deps/boost)
 set(BOOST_LIB_DIR ${CMAKE_BINARY_DIR}/deps/boost/stage/lib)
 
 add_library(boost::unit_test_framework STATIC IMPORTED)
